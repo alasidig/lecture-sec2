@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Webforms Basics</title>
+   
+  </head>
+  <body>
+      <a href="index.html">Back to index.html</a>
+<h2>Than you for feedback</h2>
+<p id="content"></p>
+<script>
+    const params = new URLSearchParams(window.location.search)
+    const user = params.has("user")?params.get('user'):"Invalid User Name "
+    const phone = params.has("phone")?params.get('phone'):"Invalid Phone "
+    const content = document.getElementById('content')
+    content.innerHTML = `Dear ${user}, we may call you on ${phone}`
+    params.forEach((value,key)=>{
+        content.append(document.createElement("br"))
+        content.append(`${key}=${value}`)})  
+
+</script>
+  </body>
+  
+</html>
